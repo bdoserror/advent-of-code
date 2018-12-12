@@ -1,0 +1,25 @@
+unsetarray freq
+setarray /t:bool freq[400000]
+set offset=200000
+set sum=0
+set freq[%offset+0]=1
+on error echo ERROR ABORTING
+do forever
+	do n in @%1
+		set sum=%@eval[%sum+(%n)]
+		set index=%@eval[%offset+%sum]
+		iff %index LT 0 .or. %index GE 400000 then
+			echo ABORTING: n=%n, sum=%sum, index=%index
+			quit 2
+		endiff
+		set this_freq=%freq[%index]
+		iff %this_freq == 1 then
+			echo 1st repeated freq=%sum
+			leave 2
+		else
+			set freq[%index]=1
+		endiff
+	enddo
+	echo Loop done.
+enddo
+echo Done.

@@ -1,0 +1,11 @@
+set sum=0
+set sum_min=0
+set sum_max=0
+for %n in (@%1) (
+	rem echos %n:
+	set sum=%@eval[%sum+(%n)]
+	set sum_max=%@max[%sum_max,%sum]
+	set sum_min=%@min[%sum_min,%sum]
+	rem echo sum=%sum, max=%sum_max, min=%sum_min
+)
+echo sum=%sum, max=%sum_max, min=%sum_min
