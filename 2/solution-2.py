@@ -1,5 +1,11 @@
+#! /usr/bin/env python2
+
 import sys
 import io
+
+# Prompt user for (optional) command line arguments, when run from IDLE:
+#if sys.modules['idlelib']: sys.argv.extend(raw_input("Args: ").split())
+
 
 def counter(fname):
 	f=open(fname)
@@ -22,9 +28,8 @@ def main(argv):
 	
 	result = counter(argv[1])
 	print str(result)
-	print result[0] * result[1]
+	# print result[0] * result[1]
 
 
 if __name__ == "__main__":
     main(sys.argv)
-		
