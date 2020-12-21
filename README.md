@@ -1,2 +1,2 @@
 # advent-of-code-2018
-[Advent of Code 2018](https://adventofcode.com/2018/) solutions and data
+[Advent of Code](https://adventofcode.com/) solutions and data
